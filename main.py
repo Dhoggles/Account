@@ -1,16 +1,17 @@
-# This is a sample Python script.
+class Account:
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    def __init__(self):
+        self.balance = 0
 
+    def add_money(self, number):
+        assert number >= 0
+        self.balance += int(number)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+    def get_balance(self):
+        return self.balance
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    def withdraw_money(self, number):
+        if number <= self.balance:
+            self.balance -= number
+            return True
+        return False
